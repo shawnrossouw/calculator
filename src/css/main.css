@@ -1,12 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+
 body {
     background: tomato;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: monospace;
+    font-family: 'Orbitron', sans-serif;
     font-size: 1em;
     height: 100vh;
+    overflow: hidden;
+}
+
+svg{
+    width: 20px;
+}
+
+#dot{
+    width: 10px;
 }
 
 .title{
@@ -14,28 +25,75 @@ body {
     font-size: 3em;
 }
 
+.btn{
+    position: relative;
+    background: rgb(59, 59, 59);
+    font-family: inherit;
+    color: white;
+    font-size: 2em;
+    width: 90px;
+    height: 70px;
+    margin: .2em;
+    border:none;
+    border-radius: 3px;
+    cursor: pointer;
+    box-shadow: 0px 5px rgb(82, 82, 82);
+    transition: all .18s ease;
+    &:focus{
+        outline: none;
+    }
+    &:active{
+        top: 5px;
+        box-shadow: 0px 0px rgb(82, 82, 82);
+    }
+}
+
 .calculator{
     &-body{
+        position: relative;
         width: 480px;
-        height: 650px;
+        height: 620px;
         background: #242121;
-        box-shadow: 20px 10px 50px #000000;
         border: 1px solid #242121;
         border-radius: 10px;
+        &::before{
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 480px;
+            height: 620px;
+            background: tomato;
+            z-index: -1;
+        }
+        &::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            height: 1200px;
+            width:750px;
+            background: #000;
+            opacity: .2;
+            transform: translateX(330px) translateY(-70px) rotate(-65deg);
+            border-radius: 2em;
+            z-index: -2;
+        }
     }
 
     &-screen{
         width: 90%;
         height: 100px;
-        background: linear-gradient(45deg, rgb(190, 190, 190), white, rgb(190, 190, 190));
+        background: linear-gradient(45deg, #98B774, rgba(255, 255, 255,.8), #98B774, #98B774, #98B774);
         margin: 2em auto;
         border-radius: 5px;
         display: flex;
         justify-content: flex-end;
         align-items: center;
+        box-shadow: inset 4px 4px 3px #3f3f3f;
         &-numbers{
-            font-size: 5em;
-            padding: 10px;
+            font-size: 4em;
+            margin: auto 10px;
             
         }
     }
@@ -44,16 +102,16 @@ body {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        align-items: flex-start;
         padding: 1em;
+        max-width: 450px;
+        &-equals{
+            width: 300px;
+        }
+        &-ce{
+            background: mediumseagreen;
+        }
     }
     
 }
 
-.btn{
-    background: rgb(59, 59, 59);
-    color: white;
-    font-size: 2em;
-    width: 80px;
-    height: 60px;
-    margin: .5em
-}
