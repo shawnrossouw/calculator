@@ -10,10 +10,11 @@ body {
     font-size: 1em;
     height: 100vh;
     overflow: hidden;
+    user-select: none;
 }
 
 svg{
-    width: 20px;
+    width: 25px;
 }
 
 #dot{
@@ -91,11 +92,12 @@ svg{
         justify-content: flex-end;
         align-items: center;
         box-shadow: inset 4px 4px 3px #3f3f3f;
+        overflow: hidden;
         &-numbers{
             font-size: 4em;
-            margin: auto 10px;
-            
+            color: grey;
         }
+
     }
 
     &-buttons{
